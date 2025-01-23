@@ -529,6 +529,7 @@ def student(request):
 
 @login_required
 def manage_student(request,pk=None):
+    # course = course.objects.all()
     if pk == None:
         student = {}
         course = Course.objects.filter(status=1).all()
@@ -541,8 +542,8 @@ def manage_student(request,pk=None):
     context['page_title'] = "Manage Course"
     context['courses'] = course
     context['student'] = student
-    return render(request, 'manage_student.html',context)
 
+    return render(request, 'manage_student.html',context)
 @login_required
 def view_student(request,pk=None):
     if pk == None:

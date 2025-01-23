@@ -1,4 +1,4 @@
-from re import T
+import re
 from unicodedata import category
 from unittest.util import _MAX_LENGTH
 from django import forms
@@ -15,7 +15,7 @@ class UserRegistration(UserCreationForm):
     class Meta:
         model = User
         fields = ('email', 'username', 'password1', 'password2', 'first_name', 'last_name')
-    
+
 
     def clean_email(self):
         email = self.cleaned_data['email']
@@ -94,7 +94,7 @@ class UpdateProfile(forms.ModelForm):
         except Exception as e:
             return username
         raise forms.ValidationError(f"The {user.username} mail is already exists/taken")
-       
+
 
 class UpdateProfileMeta(forms.ModelForm):
     dob = forms.DateField(help_text="The Birthday field is required.")
@@ -120,7 +120,7 @@ class UpdateProfileAvatar(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ('avatar',)
-    
+
     def __init__(self,*args, **kwargs):
         self.user = kwargs['instance']
         kwargs['instance'] = self.user.profile
@@ -143,7 +143,7 @@ class SaveDepartment(forms.ModelForm):
     class Meta:
         model= Department
         fields = ('name','description','status')
-    
+
     def clean_name(self):
         id = self.instance.id if not self.instance == None else 0
         try:
@@ -207,7 +207,7 @@ class SaveStudent(forms.ModelForm):
     class Meta:
         model = Student
         fields = ('student_code','first_name','middle_name','last_name','gender','dob','course','contact')
-    
+
     def clean_student_code(self):
         code = self.cleaned_data['student_code']
         try:
@@ -242,7 +242,7 @@ class SaveClassStudent(forms.ModelForm):
             return classIns
         except:
             raise forms.ValidationError("Class ID is Invalid.")
-    
+
     def clean_student(self):
         student_id = self.cleaned_data['student']
         _class = Class.objects.get(id = self.data.get('classIns'))
@@ -253,4 +253,3 @@ class SaveClassStudent(forms.ModelForm):
                 raise forms.ValidationError(f"Student already exists in the Class List.")
         except:
             return student
-       

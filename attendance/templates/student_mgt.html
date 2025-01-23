@@ -41,10 +41,10 @@
                                     <i class="fa fa-eye"></i>
                                 </a>
                                 {% if user.profile.user_type == 1 %}
-                                <a class="btn btn-outline-primary btn-sm edit-data" href="javascript:void(0)" data-id="{{ student.students.pk }}" title="Edit">
+                                <a class="btn btn-outline-primary btn-sm edit-data" href="javascript:void(0)" data-id="{{ student.user.pk }}" title="Edit">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <button class="btn btn-outline-danger btn-sm delete-data" type="button" data-id="{{ student.students.pk }}" title="Delete">
+                                <button class="btn btn-outline-danger btn-sm delete-data" type="button" data-id="{{ student.user.pk }}" title="Delete">
                                     <i class="fa fa-trash"></i>
                                 </button>
                                 {% endif  %}

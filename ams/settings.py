@@ -26,7 +26,7 @@ SECRET_KEY = '18_y&n^=!$k$ojm43-a0)bxsk3&pc_e-=0f##1g#*#)+6=v)g@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -109,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Kolkata'
+TIME_ZONE = 'Asia/Manila'
 
 USE_I18N = True
 
